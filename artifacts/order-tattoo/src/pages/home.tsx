@@ -7,36 +7,12 @@ import studioWorkspace from '@assets/generated_images/studio_workspace.jpg';
 import artistPortrait from '@assets/generated_images/artist_portrait.jpg';
 
 const historyChapters = [
-  {
-    year: "~3300 BCE",
-    title: "Ötzi the Iceman",
-    text: "The oldest tattooed human body ever found. Preserved in Alpine ice for over five millennia, Ötzi carried 61 marks — charcoal rubbed into incisions. Analysis suggests they were therapeutic, placed precisely over arthritic joints. The first tattoos were medicine."
-  },
-  {
-    year: "~1300 BCE",
-    title: "Ancient Egypt",
-    text: "Tattooed mummies bear geometric patterns — dots, lines, abstract figures on skin. Once dismissed as markers of low status, scholars now understand them as symbols of fertility, protection, and devotion. Some things are too important to leave unsaid."
-  },
-  {
-    year: "Origins",
-    title: "Polynesia & Māori",
-    text: "In the Pacific, tattoos were never decoration. The Māori tā moko encoded genealogy, rank, and identity — a readable life carved in spirals onto the face. To know someone's moko was to know their entire lineage. The face was the most sacred canvas."
-  },
-  {
-    year: "17th Century",
-    title: "Japan — Irezumi",
-    text: "Japanese irezumi began as punishment marks. Then something shifted. Artisans and laborers reclaimed the tradition, turning stigma into pride. By the Edo period, full-body irezumi had become a discipline so revered that masters trained for decades."
-  },
-  {
-    year: "Ancestral",
-    title: "Indigenous Traditions",
-    text: "Across the Americas and Africa, tattooing and scarification marked transitions — from child to warrior, from living to ancestor. These marks were not chosen freely in a studio. They were earned. They carried the weight of the community."
-  },
-  {
-    year: "Today",
-    title: "Personal Myth",
-    text: "Tattooing moved from stigma to mainstream, from sailors to surgeons, from rebellion to ritual. What remains constant: humans have always needed to mark on their bodies what they cannot say with words. A tattoo is a permanent decision made in a permanent moment."
-  }
+  { year: "~3300 BCE", title: "Ötzi the Iceman", text: "61 charcoal marks rubbed into incisions. Placed over arthritic joints — the first tattoos were medicine, not ornament." },
+  { year: "~1300 BCE", title: "Ancient Egypt", text: "Geometric patterns on mummified skin — dots, lines, symbols of fertility and protection. Too important to leave unsaid." },
+  { year: "Origins", title: "Polynesia & Māori", text: "Tā moko encoded genealogy and rank in spirals on the face. To know someone's moko was to know their entire lineage." },
+  { year: "17th Century", title: "Japan — Irezumi", text: "What began as punishment marks was reclaimed as pride. By the Edo period, irezumi was a discipline masters spent decades perfecting." },
+  { year: "Ancestral", title: "Indigenous Traditions", text: "Marks earned, not chosen — from child to warrior, from living to ancestor. Every line carried the weight of the community." },
+  { year: "Today", title: "Personal Myth", text: "From rebellion to ritual. What remains constant: a permanent mark made in a permanent moment, saying what words cannot." },
 ];
 
 export default function Home() {
@@ -211,10 +187,10 @@ export default function Home() {
       </section>
 
       {/* ── 2. HISTORY ── */}
-      <section className="bg-[#F5EEE6] py-32 md:py-48 px-8 md:px-14">
+      <section className="bg-[#F5EEE6] py-20 md:py-28 px-8 md:px-14">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
-          <div className="mb-20 md:mb-32 max-w-3xl">
+          <div className="mb-12 md:mb-16 max-w-3xl">
             <FadeIn delay={0.1}>
               <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A882]">
                 The Archive
@@ -232,13 +208,13 @@ export default function Home() {
           {/* Chapters */}
           <div className="flex flex-col divide-y divide-[#1A1A1A]/10">
             {historyChapters.map((chapter, i) => (
-              <FadeIn key={i} delay={0.1} duration={1}>
-                <div className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-6 md:gap-16 py-12 md:py-14">
-                  <div className="flex flex-col gap-1">
+              <FadeIn key={i} delay={0.05} duration={0.8}>
+                <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-12 py-7 md:py-8 items-baseline">
+                  <div className="flex flex-col gap-0.5">
                     <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#3B4F6B]">{chapter.year}</span>
-                    <span className="font-serif text-xl md:text-2xl font-light text-[#1A1A1A]">{chapter.title}</span>
+                    <span className="font-serif text-lg md:text-xl font-light text-[#1A1A1A]">{chapter.title}</span>
                   </div>
-                  <p className="font-sans text-base md:text-lg leading-[1.85] text-[#1A1A1A]/65 font-light">
+                  <p className="font-sans text-sm md:text-base leading-[1.75] text-[#1A1A1A]/60 font-light">
                     {chapter.text}
                   </p>
                 </div>
