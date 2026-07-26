@@ -1,0 +1,17 @@
+Build a single-page website for Order Tattoo, a quiet, minimalist tattoo studio owned by Manpreet Kaur. This is NOT a loud, flashy tattoo-shop aesthetic — think slow gallery, calm ritual, editorial magazine. Muted earth tones (bone white, charcoal black, warm sand, faded ink-blue accent). Serif or fine sans-serif typography, generous whitespace, lots of breathing room between sections.
+
+Core feeling: scrolling through this site should feel like a calm walk — not a slideshow. Use scroll-triggered reveal animations (fade-up, subtle parallax, text tracing in like ink spreading, images unmasking slowly) so each section builds on the last. By the time someone reaches the contact page, they should feel like they've learned something real about tattoos — their history, their meaning, why people get them — not just seen a portfolio.
+
+Structure — one long scrolling page with these sections in order:
+
+Hero — Just "Order Tattoo" and a one-line quiet tagline (something like "Ink, intention, and everything in between"). Minimal, full-screen, calm entrance animation.
+History of Tattoos — A real, historically accurate mini-narrative told in scroll-reveal chunks: Ötzi the Iceman (oldest tattooed body found, ~3300 BCE), tattoos in ancient Egypt (found on mummified priestesses), Polynesian and Māori tatau/tā moko as rites of passage and social identity, Japanese irezumi's journey from punishment marks to revered art, indigenous American and African scarification/tattoo traditions marking status and protection, and the shift in the West from sailor/circus stigma to mainstream self-expression today. Frame it as: humans have marked their skin with meaning for over 5,000 years, across nearly every civilization — it's one of the oldest continuous human art forms.
+Why & When to Get One — thoughtful, non-pushy section on reasons people tattoo (memory, identity, transformation, grief, celebration, belonging) and practical readiness cues (permanence, healing time, choosing it for yourself not a trend, aftercare commitment). Keep tone reflective, not salesy.
+Studio / Manpreet's Philosophy — short section on Manpreet Kaur's approach — calm, intentional, collaborative tattooing. Space for a portrait-style stock image.
+Contact — Instagram handle, phone number, email — laid out cleanly, minimal icons, maybe a closing line like "Tell us what you want to carry with you."
+
+Animation direction: scroll-linked reveals (Intersection Observer or Framer Motion / GSAP ScrollTrigger style), text that fades/slides in line-by-line, images that reveal via mask/clip-path as you scroll, subtle background color shifts between sections so it feels like moving through chapters, not pages.
+
+Images: add high-quality, calm/aesthetic stock tattoo studio images wherever visually needed (hero background, history section accents, studio/portrait section) — muted tones matching the palette, nothing gory or flashy.
+
+Keep it to this single home page only for now — no separate nav pages.

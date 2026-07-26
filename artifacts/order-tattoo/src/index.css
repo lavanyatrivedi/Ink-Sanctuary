@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+
+  --color-bone-white: #F7F3EE;
+  --color-deep-charcoal: #1A1A1A;
+  --color-warm-sand: #C8A882;
+  --color-ink-blue: #3B4F6B;
+  --color-warmer-bone: #F5EEE6;
+  --color-blue-gray: #EEF0F3;
+}
+
+:root {
+  --background: 33 27% 95%; /* bone white #F7F3EE */
+  --foreground: 0 0% 10%; /* deep charcoal #1A1A1A */
+  --border: 0 0% 10%; /* charcoal */
+  --input: 33 41% 65%;
+  --ring: 215 29% 33%;
+  --card: 33 27% 95%;
+  --card-foreground: 0 0% 10%;
+  --primary: 0 0% 10%;
+  --primary-foreground: 33 27% 95%;
+  --secondary: 33 41% 65%; /* sand */
+  --secondary-foreground: 0 0% 10%;
+  --muted: 33 27% 90%;
+  --muted-foreground: 0 0% 30%;
+  --accent: 215 29% 33%; /* ink blue */
+  --accent-foreground: 33 27% 95%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-medium;
+  }
+}
