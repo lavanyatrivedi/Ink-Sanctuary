@@ -7,12 +7,10 @@ import studioWorkspace from '@assets/generated_images/studio_workspace.jpg';
 import artistPortrait from '@assets/generated_images/artist_portrait.jpg';
 
 const historyChapters = [
-  { year: "~3300 BCE", title: "Ötzi the Iceman", text: "61 charcoal marks rubbed into incisions. Placed over arthritic joints — the first tattoos were medicine, not ornament." },
-  { year: "~1300 BCE", title: "Ancient Egypt", text: "Geometric patterns on mummified skin — dots, lines, symbols of fertility and protection. Too important to leave unsaid." },
-  { year: "Origins", title: "Polynesia & Māori", text: "Tā moko encoded genealogy and rank in spirals on the face. To know someone's moko was to know their entire lineage." },
-  { year: "17th Century", title: "Japan — Irezumi", text: "What began as punishment marks was reclaimed as pride. By the Edo period, irezumi was a discipline masters spent decades perfecting." },
-  { year: "Ancestral", title: "Indigenous Traditions", text: "Marks earned, not chosen — from child to warrior, from living to ancestor. Every line carried the weight of the community." },
-  { year: "Today", title: "Personal Myth", text: "From rebellion to ritual. What remains constant: a permanent mark made in a permanent moment, saying what words cannot." },
+  { year: "3300 BCE", title: "Ötzi the Iceman", text: "The oldest known tattoos — charcoal rubbed into incisions, placed over arthritic joints. The first tattoos were medicine." },
+  { year: "Origins", title: "Polynesia & Māori", text: "Tā moko encoded genealogy and rank in spirals on the face. A readable life. The face as the most sacred canvas." },
+  { year: "17th C", title: "Japan — Irezumi", text: "Punishment marks reclaimed as pride. By the Edo period, a discipline so revered that masters trained for decades." },
+  { year: "Today", title: "Personal Myth", text: "From rebellion to ritual. A permanent mark made in a permanent moment — saying what words cannot." },
 ];
 
 export default function Home() {
@@ -187,40 +185,69 @@ export default function Home() {
       </section>
 
       {/* ── 2. HISTORY ── */}
-      <section className="bg-[#F5EEE6] py-20 md:py-28 px-8 md:px-14">
+      <section className="bg-[#F5EEE6] py-20 md:py-24 px-8 md:px-14">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
-          <div className="mb-12 md:mb-16 max-w-3xl">
-            <FadeIn delay={0.1}>
-              <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A882]">
-                The Archive
+          <div className="mb-14 flex items-end justify-between gap-6 flex-wrap">
+            <div>
+              <FadeIn delay={0.1}>
+                <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A882]">The Archive</span>
+              </FadeIn>
+              <h2 className="mt-3 font-serif font-light leading-[1.05] tracking-tight text-[#1A1A1A]" style={{ fontSize: 'clamp(2rem, 4vw, 3.6rem)' }}>
+                <HeadingReveal text="5,000 years of skin and meaning." />
+              </h2>
+            </div>
+            <FadeIn delay={0.2}>
+              <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/30 hidden md:block">
+                One of the oldest continuous human art forms
               </span>
             </FadeIn>
-            <h2 className="mt-6 font-serif font-light leading-[1.05] tracking-tight text-[#1A1A1A]" style={{ fontSize: 'clamp(2.8rem, 6vw, 6rem)' }}>
-              <HeadingReveal text="A 5,000‑Year Story" />
-              <HeadingReveal text="Written on Skin" delay={0.15} />
-            </h2>
-            <div className="mt-10">
-              <LineReveal className="bg-[#1A1A1A]/15" />
-            </div>
           </div>
 
-          {/* Chapters */}
-          <div className="flex flex-col divide-y divide-[#1A1A1A]/10">
-            {historyChapters.map((chapter, i) => (
-              <FadeIn key={i} delay={0.05} duration={0.8}>
-                <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-12 py-7 md:py-8 items-baseline">
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#3B4F6B]">{chapter.year}</span>
-                    <span className="font-serif text-lg md:text-xl font-light text-[#1A1A1A]">{chapter.title}</span>
-                  </div>
-                  <p className="font-sans text-sm md:text-base leading-[1.75] text-[#1A1A1A]/60 font-light">
-                    {chapter.text}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
+          {/* Timeline */}
+          <FadeIn delay={0.15}>
+            {/* Horizontal spine */}
+            <div className="relative">
+              {/* The line */}
+              <div className="hidden md:block absolute top-[22px] left-0 right-0 h-[1px] bg-[#1A1A1A]/12" />
+
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+                {historyChapters.map((chapter, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.7, delay: i * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="relative pt-0 md:pt-10"
+                  >
+                    {/* Dot on timeline */}
+                    <div className="hidden md:flex absolute top-0 left-0 items-center justify-center -translate-y-[9px]">
+                      <div className="w-[5px] h-[5px] rounded-full bg-[#C8A882]" />
+                    </div>
+
+                    {/* Year */}
+                    <span className="font-sans text-[10px] tracking-[0.28em] uppercase text-[#3B4F6B]">
+                      {chapter.year}
+                    </span>
+
+                    {/* Title */}
+                    <h3 className="mt-2 font-serif text-lg md:text-xl font-light text-[#1A1A1A] leading-snug">
+                      {chapter.title}
+                    </h3>
+
+                    {/* Divider */}
+                    <div className="my-3 w-6 h-[1px] bg-[#C8A882]/50" />
+
+                    {/* Text */}
+                    <p className="font-sans text-[13px] leading-[1.75] text-[#1A1A1A]/55 font-light">
+                      {chapter.text}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
