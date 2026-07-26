@@ -18,7 +18,7 @@ export default function Home() {
     <div className="w-full bg-[#F7F3EE] text-[#1A1A1A] font-serif antialiased">
 
       {/* ── FIXED HEADER ── */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-14 py-5 mix-blend-multiply">
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-14 py-4 bg-[#F7F3EE]/85 backdrop-blur-md border-b border-[#1A1A1A]/5 shadow-xs transition-all duration-300">
         {/* Logo mark */}
         <motion.div
           initial={{ opacity: 0, y: -8 }}
@@ -66,109 +66,78 @@ export default function Home() {
       </header>
 
       {/* ── 1. HERO ── */}
-      <section className="min-h-screen w-full bg-[#F7F3EE] pt-24 pb-0 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
+      <section className="min-h-screen w-full bg-[#F7F3EE] pt-20 pb-0 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
 
         {/* Left: text block */}
-        <div className="flex flex-col justify-between pb-16 md:pb-24 px-8 md:px-14 pt-32 lg:pt-28 z-10">
+        <div className="flex flex-col justify-between pb-12 md:pb-16 px-8 md:px-14 pt-20 lg:pt-16 z-10">
 
-          {/* Logo mark */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="w-fit"
-          >
-            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-              {/* Outer circle */}
-              <circle cx="36" cy="36" r="34" stroke="#1A1A1A" strokeWidth="0.6" opacity="0.25" />
-              {/* Inner circle */}
-              <circle cx="36" cy="36" r="28" stroke="#C8A882" strokeWidth="0.5" opacity="0.5" />
-              {/* OT monogram */}
-              <text
-                x="36" y="41"
-                textAnchor="middle"
-                fontFamily="Cormorant Garamond, serif"
-                fontSize="18"
-                fontWeight="300"
-                fill="#1A1A1A"
-                opacity="0.75"
-                letterSpacing="3"
-              >OT</text>
-              {/* Top tick marks */}
-              <line x1="36" y1="2" x2="36" y2="8" stroke="#C8A882" strokeWidth="0.6" opacity="0.4" />
-              <line x1="36" y1="64" x2="36" y2="70" stroke="#C8A882" strokeWidth="0.6" opacity="0.4" />
-              <line x1="2" y1="36" x2="8" y2="36" stroke="#C8A882" strokeWidth="0.6" opacity="0.4" />
-              <line x1="64" y1="36" x2="70" y2="36" stroke="#C8A882" strokeWidth="0.6" opacity="0.4" />
-            </svg>
-          </motion.div>
-
-          {/* Bottom: eyebrow + title + tagline */}
+          {/* Eyebrow + title + tagline */}
           <div>
-          {/* Eyebrow */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
-            className="flex items-center gap-4 mb-10"
-          >
-            <span className="w-8 h-[1px] bg-[#C8A882]" />
-            <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A882]">
-              Jaipur's first female-owned tattoo brand
-            </span>
-          </motion.div>
-
-          {/* Main title */}
-          <h1 className="font-serif font-light leading-[0.92] tracking-[-0.02em] text-[#1A1A1A]" style={{ fontSize: 'clamp(4rem, 9vw, 8.5rem)' }}>
-            <motion.span
-              className="block"
-              initial={{ opacity: 0, y: 40 }}
+            {/* Eyebrow */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="flex items-center gap-3 mb-6 md:mb-8"
             >
-              Order
-            </motion.span>
-            <motion.span
-              className="block italic text-[#3B4F6B]"
-              initial={{ opacity: 0, y: 40 }}
+              <span className="w-8 h-[1px] bg-[#C8A882]" />
+              <span className="font-sans text-[10px] md:text-[11px] tracking-[0.28em] uppercase text-[#C8A882] font-medium">
+                Jaipur's first female-owned tattoo brand
+              </span>
+            </motion.div>
+
+            {/* Main title */}
+            <h1 className="font-serif font-light leading-[0.92] tracking-[-0.02em] text-[#1A1A1A]" style={{ fontSize: 'clamp(4rem, 9vw, 8.5rem)' }}>
+              <motion.span
+                className="block"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                Order
+              </motion.span>
+              <motion.span
+                className="block italic text-[#3B4F6B]"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.1, delay: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                Tattoo
+              </motion.span>
+            </h1>
+
+            {/* Rule */}
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: '5rem' }}
+              transition={{ duration: 1.4, delay: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+              className="h-[1px] bg-[#C8A882] my-8 md:my-10"
+            />
+
+            {/* Tagline */}
+            <motion.p
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, delay: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 1.2, delay: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="font-sans font-light text-base md:text-lg leading-relaxed tracking-wide text-[#1A1A1A]/60 max-w-xs"
             >
-              Tattoo
-            </motion.span>
-          </h1>
+              Rebuilding how India<br />gets tattooed.
+            </motion.p>
 
-          {/* Rule */}
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: '5rem' }}
-            transition={{ duration: 1.4, delay: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="h-[1px] bg-[#C8A882] my-10"
-          />
-
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 1.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="font-sans font-light text-base md:text-lg leading-relaxed tracking-wide text-[#1A1A1A]/60 max-w-xs"
-          >
-            Rebuilding how India<br />gets tattooed.
-          </motion.p>
-
-          {/* Metadata strip */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.8 }}
-            className="mt-16 flex gap-10 font-sans text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/30"
-          >
-            <span>Order Online</span>
-            <span>·</span>
-            <span>Get an Estimate</span>
-            <span>·</span>
-            <span>Choose Your Location</span>
-          </motion.div>
-          </div>{/* end bottom block */}
+            {/* Metadata strip */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.5 }}
+              className="mt-12 md:mt-16 flex flex-wrap gap-x-6 gap-y-2 font-sans text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/35"
+            >
+              <span>Order Online</span>
+              <span>·</span>
+              <span>Get an Estimate</span>
+              <span>·</span>
+              <span>Choose Your Location</span>
+            </motion.div>
+          </div>{/* end text block */}
         </div>{/* end left column */}
 
         {/* Right: hero image */}
@@ -413,7 +382,7 @@ export default function Home() {
       </section>
 
       {/* ── 5. CONTACT ── */}
-      <section id="contact" className="bg-[#EEF0F3] py-32 md:py-48 px-8 md:px-14">
+      <section id="contact" className="bg-[#EEF0F3] py-28 md:py-40 px-8 md:px-14">
         <div className="max-w-6xl mx-auto">
 
           <div className="mb-20">
@@ -435,21 +404,23 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Contact links */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-[#1A1A1A]/10">
+          {/* Contact links with clean, symmetrical vertical dividers */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 items-center">
             {[
               { label: 'Instagram', value: '@ordertattoo.in', href: 'https://instagram.com/ordertattoo.in' },
               { label: 'WhatsApp', value: '+91 87400 07570', href: 'https://wa.me/918740007570' },
               { label: 'Web', value: 'ordertattoo.in', href: 'https://ordertattoo.in' },
             ].map((item, i) => (
-              <FadeIn key={i} delay={0.1 + i * 0.12}>
+              <FadeIn key={i} delay={0.1 + i * 0.12} className="w-full">
                 <a
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex flex-col gap-2 py-10 md:py-8 md:px-10 first:md:pl-0 last:md:pr-0 transition-all duration-500"
+                  className={`group flex flex-col gap-2.5 py-4 px-2 md:px-10 transition-all duration-500 ${
+                    i !== 0 ? 'md:border-l md:border-[#1A1A1A]/15' : ''
+                  }`}
                 >
-                  <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-[#1A1A1A]/35 group-hover:text-[#3B4F6B] transition-colors duration-500">
+                  <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-[#1A1A1A]/40 group-hover:text-[#3B4F6B] transition-colors duration-500">
                     {item.label}
                   </span>
                   <span className="font-serif text-2xl md:text-3xl font-light text-[#1A1A1A] group-hover:text-[#3B4F6B] transition-colors duration-500">
@@ -461,12 +432,23 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Closing */}
-          <FadeIn delay={0.5}>
-            <div className="mt-24 text-center">
-              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#1A1A1A]/30">
-                Online estimates · Private sessions · Doorstep & on-location across Jaipur
-              </p>
+          {/* Concise Footer 3 Points */}
+          <FadeIn delay={0.4}>
+            <div className="mt-28 md:mt-32 pb-4 flex flex-wrap items-center justify-center gap-4 md:gap-8 font-sans text-[10px] md:text-[11px] tracking-[0.25em] uppercase text-[#1A1A1A]/40 font-medium">
+              <span className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C8A882]" />
+                Online Estimates
+              </span>
+              <span className="hidden sm:inline text-[#1A1A1A]/20">·</span>
+              <span className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C8A882]" />
+                Private Sessions
+              </span>
+              <span className="hidden sm:inline text-[#1A1A1A]/20">·</span>
+              <span className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C8A882]" />
+                Jaipur Doorstep & Studio
+              </span>
             </div>
           </FadeIn>
         </div>
