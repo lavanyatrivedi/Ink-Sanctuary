@@ -69,7 +69,41 @@ export default function Home() {
       <section className="min-h-screen w-full bg-[#F7F3EE] pt-24 pb-0 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
 
         {/* Left: text block */}
-        <div className="flex flex-col justify-end pb-16 md:pb-24 px-8 md:px-14 pt-32 lg:pt-0 z-10">
+        <div className="flex flex-col justify-between pb-16 md:pb-24 px-8 md:px-14 pt-32 lg:pt-28 z-10">
+
+          {/* Logo mark */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            className="w-fit"
+          >
+            <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Outer circle */}
+              <circle cx="36" cy="36" r="34" stroke="#1A1A1A" strokeWidth="0.6" opacity="0.25" />
+              {/* Inner circle */}
+              <circle cx="36" cy="36" r="28" stroke="#C8A882" strokeWidth="0.5" opacity="0.5" />
+              {/* OT monogram */}
+              <text
+                x="36" y="41"
+                textAnchor="middle"
+                fontFamily="Cormorant Garamond, serif"
+                fontSize="18"
+                fontWeight="300"
+                fill="#1A1A1A"
+                opacity="0.75"
+                letterSpacing="3"
+              >OT</text>
+              {/* Top tick marks */}
+              <line x1="36" y1="2" x2="36" y2="8" stroke="#C8A882" strokeWidth="0.6" opacity="0.4" />
+              <line x1="36" y1="64" x2="36" y2="70" stroke="#C8A882" strokeWidth="0.6" opacity="0.4" />
+              <line x1="2" y1="36" x2="8" y2="36" stroke="#C8A882" strokeWidth="0.6" opacity="0.4" />
+              <line x1="64" y1="36" x2="70" y2="36" stroke="#C8A882" strokeWidth="0.6" opacity="0.4" />
+            </svg>
+          </motion.div>
+
+          {/* Bottom: eyebrow + title + tagline */}
+          <div>
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -134,7 +168,8 @@ export default function Home() {
             <span>·</span>
             <span>Choose Your Location</span>
           </motion.div>
-        </div>
+          </div>{/* end bottom block */}
+        </div>{/* end left column */}
 
         {/* Right: hero image */}
         <div className="relative h-[55vw] lg:h-auto overflow-hidden">
