@@ -1,7 +1,7 @@
 import { FadeIn, HeadingReveal, LineReveal, ImageReveal, ParagraphReveal } from '@/components/animations';
 import { motion } from 'framer-motion';
 
-// Generated images only — no Instagram screenshots
+// Generated images only
 import heroLotus from '@assets/generated_images/hero_lotus.jpg';
 import studioWorkspace from '@assets/generated_images/studio_workspace.jpg';
 import artistPortrait from '@assets/generated_images/artist_portrait.jpg';
@@ -105,7 +105,7 @@ export default function Home() {
           >
             <span className="w-8 h-[1px] bg-[#C8A882]" />
             <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A882]">
-              Est. Jaipur · By appointment
+              Jaipur's first female-owned tattoo brand
             </span>
           </motion.div>
 
@@ -144,7 +144,7 @@ export default function Home() {
             transition={{ duration: 1.2, delay: 1.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="font-sans font-light text-base md:text-lg leading-relaxed tracking-wide text-[#1A1A1A]/60 max-w-xs"
           >
-            Ink, intention,<br />and everything in between.
+            Rebuilding how India<br />gets tattooed.
           </motion.p>
 
           {/* Metadata strip */}
@@ -154,11 +154,11 @@ export default function Home() {
             transition={{ duration: 1, delay: 1.8 }}
             className="mt-16 flex gap-10 font-sans text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/30"
           >
-            <span>Fine Line</span>
+            <span>Order Online</span>
             <span>·</span>
-            <span>Custom Design</span>
+            <span>Get an Estimate</span>
             <span>·</span>
-            <span>At Your Door</span>
+            <span>Choose Your Location</span>
           </motion.div>
         </div>
 
@@ -187,7 +187,7 @@ export default function Home() {
             className="absolute bottom-10 right-8 text-right"
           >
             <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-white/60">
-              Certified · Aliens Tattoo Mumbai
+              Founded by Manpreet Kaur Brar
             </span>
           </motion.div>
         </div>
@@ -326,11 +326,11 @@ export default function Home() {
                 className="mt-4 font-serif font-light leading-[1.05] tracking-tight text-[#F7F3EE]"
                 style={{ fontSize: 'clamp(2.4rem, 4vw, 4.2rem)' }}
               >
-                <HeadingReveal text="Manpreet Kaur" delay={0.1} />
+                <HeadingReveal text="Manpreet Kaur Brar" delay={0.1} />
               </h2>
               <FadeIn delay={0.25}>
                 <p className="mt-3 font-sans text-[11px] tracking-[0.18em] uppercase text-[#F7F3EE]/40">
-                  Tattoo Artist · Certified, Aliens Tattoo Mumbai
+                  Founder · Certified, Aliens Tattoo Mumbai
                 </p>
               </FadeIn>
             </div>
@@ -338,22 +338,29 @@ export default function Home() {
             <LineReveal delay={0.2} className="bg-[#F7F3EE]/10" />
 
             <ParagraphReveal delay={0.3}>
-              <blockquote className="font-serif text-xl md:text-2xl leading-[1.6] font-light text-[#F7F3EE]/85 italic">
-                "Every tattoo I make is a collaboration. I don't put my art on your body — I help you find what was already trying to come through. The process is slow, deliberate, and private. You bring the meaning. I bring the craft."
-              </blockquote>
+              <p className="font-sans text-base md:text-[17px] leading-[1.85] font-light text-[#F7F3EE]/70">
+                Every tattoo studio works the same way. You call, you DM, you wait, you walk in, you negotiate. We flipped it. At Order Tattoo you place an order online, receive an estimate before you commit, and choose where the session happens — our private atelier, your home, or your hotel.
+              </p>
             </ParagraphReveal>
 
-            <LineReveal delay={0.35} className="bg-[#F7F3EE]/10" />
-
-            <FadeIn delay={0.45}>
-              <p className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#C8A882]">
-                By appointment. At your door.
+            <ParagraphReveal delay={0.4}>
+              <p className="font-sans text-base md:text-[17px] leading-[1.85] font-light text-[#F7F3EE]/70">
+                Every session is one-on-one and by appointment, using US-imported equipment, single-use needles, vegan inks, and hospital-grade hygiene.
               </p>
-            </FadeIn>
+            </ParagraphReveal>
 
-            <FadeIn delay={0.55}>
-              <div className="pt-4 flex flex-col gap-2">
-                {['Fine Line', 'Illustrative', 'Script & Lettering', 'Geometric', 'Custom Concepts'].map((style, i) => (
+            <LineReveal delay={0.45} className="bg-[#F7F3EE]/10" />
+
+            <FadeIn delay={0.5}>
+              <div className="flex flex-col gap-2">
+                {[
+                  'Fine Line',
+                  'Black & Grey',
+                  'Realism',
+                  'Lettering & Script',
+                  'Doorstep & On-Location Sessions',
+                  'Corporate & Brand Collaborations',
+                ].map((style, i) => (
                   <div key={i} className="flex items-center gap-4">
                     <span className="w-3 h-[1px] bg-[#C8A882]/50" />
                     <span className="font-sans text-[10px] tracking-[0.22em] uppercase text-[#F7F3EE]/40">
@@ -393,7 +400,7 @@ export default function Home() {
           {/* Contact links */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-[#1A1A1A]/10">
             {[
-              { label: 'Instagram', value: '@mnprt_9001', href: 'https://instagram.com/mnprt_9001' },
+              { label: 'Instagram', value: '@ordertattoo.in', href: 'https://instagram.com/ordertattoo.in' },
               { label: 'WhatsApp', value: '+91 87400 07570', href: 'https://wa.me/918740007570' },
               { label: 'Web', value: 'ordertattoo.in', href: 'https://ordertattoo.in' },
             ].map((item, i) => (
@@ -419,8 +426,8 @@ export default function Home() {
           {/* Closing */}
           <FadeIn delay={0.5}>
             <div className="mt-24 text-center">
-              <p className="font-serif italic text-xl md:text-2xl text-[#1A1A1A]/40">
-                Order. Then, forever.
+              <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#1A1A1A]/30">
+                Online estimates · Private sessions · Doorstep & on-location across Jaipur
               </p>
             </div>
           </FadeIn>
