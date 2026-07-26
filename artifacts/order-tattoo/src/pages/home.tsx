@@ -5,13 +5,13 @@ import { motion } from 'framer-motion';
 import heroLotus from '@assets/generated_images/hero_lotus.jpg';
 import studioWorkspace from '@assets/generated_images/studio_workspace.jpg';
 import artistPortrait from '@assets/generated_images/artist_portrait.jpg';
-import sunTattooArm from '@assets/WhatsApp_Image_2026-07-26_at_17.08.48_1785065943382.jpeg';
+import sunTattooArm from '@/assets/sun_tattoo.jpg';
 
 const historyChapters = [
-  { year: "3300 BCE", title: "Ötzi the Iceman", text: "The oldest known tattoos — charcoal rubbed into incisions, placed over arthritic joints. The first tattoos were medicine." },
+  { year: "3300 BCE", title: "Ötzi the Iceman", text: "The oldest known tattoos: charcoal rubbed into incisions, placed over arthritic joints. The first tattoos were medicine." },
   { year: "Origins", title: "Polynesia & Māori", text: "Tā moko encoded genealogy and rank in spirals on the face. A readable life. The face as the most sacred canvas." },
-  { year: "17th C", title: "Japan — Irezumi", text: "Punishment marks reclaimed as pride. By the Edo period, a discipline so revered that masters trained for decades." },
-  { year: "Today", title: "Personal Myth", text: "From rebellion to ritual. A permanent mark made in a permanent moment — saying what words cannot." },
+  { year: "17th Century", title: "Japan - Irezumi", text: "Punishment marks reclaimed as pride. By the Edo period, a discipline so revered that masters trained for decades." },
+  { year: "Today", title: "Personal Myth", text: "From rebellion to ritual. A permanent mark made in a permanent moment: saying what words cannot." },
 ];
 
 export default function Home() {
@@ -263,12 +263,12 @@ export default function Home() {
             <div className="space-y-6">
               <ParagraphReveal delay={0.1}>
                 <p className="font-sans text-base md:text-[17px] leading-[1.9] text-[#1A1A1A]/65 font-light">
-                  People carry ink for reasons that span the entirety of human experience. We tattoo to remember. To reclaim our bodies, to grieve, to celebrate, to mark transitions, and to find belonging. A tattoo is an anchor in a fluid world — fixed, permanent, yours.
+                  People carry ink for reasons that span the entirety of human experience. We tattoo to remember. To reclaim our bodies, to grieve, to celebrate, to mark transitions, and to find belonging. A tattoo is an anchor in a fluid world: fixed, permanent, yours.
                 </p>
               </ParagraphReveal>
               <ParagraphReveal delay={0.25}>
                 <p className="font-sans text-base md:text-[17px] leading-[1.9] text-[#1A1A1A]/65 font-light">
-                  Readiness matters. Permanence requires intention. Healing takes time and patience. Choose a design for yourself — not for a trend, not for another person. The commitment to aftercare is the final step in the ritual. Be sure you are ready to carry this with you — forever.
+                  Readiness matters. Permanence requires intention. Healing takes time and patience. Choose a design for yourself, not for a trend, not for another person. The commitment to aftercare is the final step in the ritual. Be sure you are ready to carry this with you forever.
                 </p>
               </ParagraphReveal>
             </div>
@@ -298,7 +298,7 @@ export default function Home() {
           <FadeIn className="relative">
             <ImageReveal
               src={artistPortrait}
-              alt="Manpreet Kaur — tattoo artist, Jaipur"
+              alt="Manpreet Kaur - tattoo artist, Jaipur"
               className="aspect-[3/4] w-full"
             />
             {/* Accent frame */}
@@ -330,7 +330,7 @@ export default function Home() {
 
             <ParagraphReveal delay={0.3}>
               <p className="font-sans text-base md:text-[17px] leading-[1.85] font-light text-[#F7F3EE]/70">
-                Every tattoo studio works the same way. You call, you DM, you wait, you walk in, you negotiate. We flipped it. At Order Tattoo you place an order online, receive an estimate before you commit, and choose where the session happens — our private atelier, your home, or your hotel.
+                Every tattoo studio works the same way. You call, you DM, you wait, you walk in, you negotiate. We flipped it. At Order Tattoo you place an order online, receive an estimate before you commit, and choose where the session happens: our private atelier, your home, or your hotel.
               </p>
             </ParagraphReveal>
 

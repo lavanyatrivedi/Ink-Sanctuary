@@ -43,11 +43,11 @@ export const HeadingReveal = ({ text, delay = 0, className = "" }: { text: strin
   return (
     <motion.div
       className={`block ${className}`}
-      initial={{ clipPath: "inset(0 100% 0 0)", opacity: 0 }}
-      whileInView={{ clipPath: "inset(0 0% 0 0)", opacity: 1 }}
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{
-        duration: 1.4,
+        duration: 1,
         delay,
         ease: [0.25, 0.1, 0.25, 1]
       }}
