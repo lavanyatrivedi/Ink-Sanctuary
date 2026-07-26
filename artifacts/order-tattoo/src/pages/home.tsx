@@ -1,133 +1,246 @@
-import { FadeIn, TextReveal, HeadingReveal, LineReveal, ImageReveal, ParagraphReveal } from '@/components/animations';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { FadeIn, HeadingReveal, LineReveal, ImageReveal, ParagraphReveal } from '@/components/animations';
+import { motion } from 'framer-motion';
 
-// Import images
+// Generated images only — no Instagram screenshots
 import heroLotus from '@assets/generated_images/hero_lotus.jpg';
 import studioWorkspace from '@assets/generated_images/studio_workspace.jpg';
 import artistPortrait from '@assets/generated_images/artist_portrait.jpg';
-import portfolioGrid from '@assets/WhatsApp_Image_2026-07-26_at_16.52.56_1785065020741.jpeg';
+
+const historyChapters = [
+  {
+    year: "~3300 BCE",
+    title: "Ötzi the Iceman",
+    text: "The oldest tattooed human body ever found. Preserved in Alpine ice for over five millennia, Ötzi carried 61 marks — charcoal rubbed into incisions. Analysis suggests they were therapeutic, placed precisely over arthritic joints. The first tattoos were medicine."
+  },
+  {
+    year: "~1300 BCE",
+    title: "Ancient Egypt",
+    text: "Tattooed mummies bear geometric patterns — dots, lines, abstract figures on skin. Once dismissed as markers of low status, scholars now understand them as symbols of fertility, protection, and devotion. Some things are too important to leave unsaid."
+  },
+  {
+    year: "Origins",
+    title: "Polynesia & Māori",
+    text: "In the Pacific, tattoos were never decoration. The Māori tā moko encoded genealogy, rank, and identity — a readable life carved in spirals onto the face. To know someone's moko was to know their entire lineage. The face was the most sacred canvas."
+  },
+  {
+    year: "17th Century",
+    title: "Japan — Irezumi",
+    text: "Japanese irezumi began as punishment marks. Then something shifted. Artisans and laborers reclaimed the tradition, turning stigma into pride. By the Edo period, full-body irezumi had become a discipline so revered that masters trained for decades."
+  },
+  {
+    year: "Ancestral",
+    title: "Indigenous Traditions",
+    text: "Across the Americas and Africa, tattooing and scarification marked transitions — from child to warrior, from living to ancestor. These marks were not chosen freely in a studio. They were earned. They carried the weight of the community."
+  },
+  {
+    year: "Today",
+    title: "Personal Myth",
+    text: "Tattooing moved from stigma to mainstream, from sailors to surgeons, from rebellion to ritual. What remains constant: humans have always needed to mark on their bodies what they cannot say with words. A tattoo is a permanent decision made in a permanent moment."
+  }
+];
 
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-
-  // We map the scroll progress to background colors
-  const backgroundColor = useTransform(
-    scrollYProgress,
-    [0, 0.15, 0.2, 0.45, 0.5, 0.8, 0.85],
-    [
-      "hsl(0, 0%, 10%)", // hero: deep charcoal
-      "hsl(0, 0%, 10%)", 
-      "hsl(32, 37%, 93%)", // history: warmer bone #F5EEE6
-      "hsl(32, 37%, 93%)",
-      "hsl(33, 27%, 95%)", // studio/philosophy: bone white #F7F3EE
-      "hsl(33, 27%, 95%)",
-      "hsl(216, 17%, 94%)" // contact: barely-blue-gray #EEF0F3
-    ]
-  );
-
   return (
-    <motion.div 
-      style={{ backgroundColor }}
-      className="w-full font-light selection:bg-[var(--color-warm-sand)] selection:text-[var(--color-deep-charcoal)] transition-colors duration-700"
-    >
-      
-      {/* 1. HERO */}
-      <section className="relative h-[100svh] w-full text-[var(--color-bone-white)] flex flex-col justify-center items-center overflow-hidden">
-        {/* Very subtle background texture / image */}
-        <div className="absolute inset-0 opacity-20 pointer-events-none">
-          <motion.img 
-            style={{ y }}
-            src={heroLotus} 
-            alt="Hero Texture" 
-            className="w-full h-full object-cover object-center mix-blend-overlay"
-          />
-        </div>
-        
-        <div className="relative z-10 flex flex-col items-center px-6 max-w-4xl w-full">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl tracking-tight mb-8">
-            <TextReveal text="Order Tattoo" />
+    <div className="w-full bg-[#F7F3EE] text-[#1A1A1A] font-serif antialiased">
+
+      {/* ── FIXED HEADER ── */}
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-14 py-5 mix-blend-multiply">
+        {/* Logo mark */}
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+          className="flex items-center gap-3"
+        >
+          <span className="font-serif text-[11px] font-medium tracking-[0.25em] uppercase text-[#1A1A1A]/80">
+            Order Tattoo
+          </span>
+          <span className="w-4 h-[1px] bg-[#1A1A1A]/30" />
+          <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/40">
+            Jaipur
+          </span>
+        </motion.div>
+
+        {/* Right nav */}
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          className="flex items-center gap-7"
+        >
+          <a
+            href="#philosophy"
+            className="font-sans text-[10px] tracking-[0.22em] uppercase text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors duration-500"
+          >
+            Studio
+          </a>
+          <a
+            href="#contact"
+            className="font-sans text-[10px] tracking-[0.22em] uppercase text-[#1A1A1A]/50 hover:text-[#1A1A1A] transition-colors duration-500"
+          >
+            Contact
+          </a>
+          <a
+            href="https://wa.me/918740007570"
+            target="_blank"
+            rel="noreferrer"
+            className="font-sans text-[10px] tracking-[0.22em] uppercase border border-[#1A1A1A]/20 px-4 py-1.5 hover:border-[#1A1A1A]/60 hover:text-[#1A1A1A] text-[#1A1A1A]/50 transition-all duration-500"
+          >
+            Book
+          </a>
+        </motion.div>
+      </header>
+
+      {/* ── 1. HERO ── */}
+      <section className="min-h-screen w-full bg-[#F7F3EE] pt-24 pb-0 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
+
+        {/* Left: text block */}
+        <div className="flex flex-col justify-end pb-16 md:pb-24 px-8 md:px-14 pt-32 lg:pt-0 z-10">
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.3 }}
+            className="flex items-center gap-4 mb-10"
+          >
+            <span className="w-8 h-[1px] bg-[#C8A882]" />
+            <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A882]">
+              Est. Jaipur · By appointment
+            </span>
+          </motion.div>
+
+          {/* Main title */}
+          <h1 className="font-serif font-light leading-[0.92] tracking-[-0.02em] text-[#1A1A1A]" style={{ fontSize: 'clamp(4rem, 9vw, 8.5rem)' }}>
+            <motion.span
+              className="block"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              Order
+            </motion.span>
+            <motion.span
+              className="block italic text-[#3B4F6B]"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, delay: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              Tattoo
+            </motion.span>
           </h1>
-          <FadeIn delay={1.5} duration={1.2}>
-            <p className="text-lg md:text-xl tracking-wide uppercase font-sans text-white/70 text-center">
-              Ink, intention, and everything in between.
-            </p>
-          </FadeIn>
-          
-          <motion.div 
+
+          {/* Rule */}
+          <motion.div
             initial={{ width: 0 }}
-            animate={{ width: "100px" }}
-            transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
-            className="h-[1px] bg-white/30 mt-12"
+            animate={{ width: '5rem' }}
+            transition={{ duration: 1.4, delay: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
+            className="h-[1px] bg-[#C8A882] my-10"
           />
+
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 1.3, ease: [0.25, 0.1, 0.25, 1] }}
+            className="font-sans font-light text-base md:text-lg leading-relaxed tracking-wide text-[#1A1A1A]/60 max-w-xs"
+          >
+            Ink, intention,<br />and everything in between.
+          </motion.p>
+
+          {/* Metadata strip */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.8 }}
+            className="mt-16 flex gap-10 font-sans text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/30"
+          >
+            <span>Fine Line</span>
+            <span>·</span>
+            <span>Custom Design</span>
+            <span>·</span>
+            <span>At Your Door</span>
+          </motion.div>
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ 
-            duration: 1, 
-            delay: 3, 
-            repeat: Infinity, 
-            repeatType: "reverse", 
-            repeatDelay: 1 
-          }}
-          className="absolute bottom-12 flex flex-col items-center gap-2"
+        {/* Right: hero image */}
+        <div className="relative h-[55vw] lg:h-auto overflow-hidden">
+          <motion.div
+            className="absolute inset-0"
+            initial={{ clipPath: 'inset(0 100% 0 0)' }}
+            animate={{ clipPath: 'inset(0 0% 0 0)' }}
+            transition={{ duration: 1.4, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
+          >
+            <img
+              src={heroLotus}
+              alt="Fine-line lotus tattoo"
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Subtle left vignette to blend into page */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#F7F3EE] via-transparent to-transparent w-1/3" />
+          </motion.div>
+
+          {/* Floating caption */}
+          <motion.div
+            initial={{ opacity: 0, x: 12 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 1.8 }}
+            className="absolute bottom-10 right-8 text-right"
+          >
+            <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-white/60">
+              Certified · Aliens Tattoo Mumbai
+            </span>
+          </motion.div>
+        </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 2.2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 hidden lg:flex"
         >
-          <span className="w-[1px] h-12 bg-white/30"></span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-[1px] h-12 bg-[#1A1A1A]/20"
+          />
+          <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-[#1A1A1A]/30">
+            Scroll
+          </span>
         </motion.div>
       </section>
 
-      {/* 2. HISTORY OF TATTOOS */}
-      <section className="relative py-32 md:py-48 px-6 text-[var(--color-deep-charcoal)]">
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-24">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl mb-8">
-              <HeadingReveal text="A 5,000-Year Story Written on Skin" />
+      {/* ── 2. HISTORY ── */}
+      <section className="bg-[#F5EEE6] py-32 md:py-48 px-8 md:px-14">
+        <div className="max-w-6xl mx-auto">
+          {/* Section header */}
+          <div className="mb-20 md:mb-32 max-w-3xl">
+            <FadeIn delay={0.1}>
+              <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A882]">
+                The Archive
+              </span>
+            </FadeIn>
+            <h2 className="mt-6 font-serif font-light leading-[1.05] tracking-tight text-[#1A1A1A]" style={{ fontSize: 'clamp(2.8rem, 6vw, 6rem)' }}>
+              <HeadingReveal text="A 5,000‑Year Story" />
+              <HeadingReveal text="Written on Skin" delay={0.15} />
             </h2>
-            <LineReveal className="bg-[var(--color-deep-charcoal)]/20" />
+            <div className="mt-10">
+              <LineReveal className="bg-[#1A1A1A]/15" />
+            </div>
           </div>
 
-          <div className="flex flex-col gap-24 md:gap-32">
-            {[
-              {
-                year: "~3300 BCE",
-                title: "Ötzi the Iceman",
-                text: "The oldest tattooed human body ever found. Preserved in Alpine ice for over five millennia, Ötzi carried 61 marks on his body — charcoal rubbed into incisions. Analysis suggests they were therapeutic, placed over arthritic joints. The first tattoos were medicine."
-              },
-              {
-                year: "~1300 BCE",
-                title: "Ancient Egypt",
-                text: "Tattooed mummies of Egyptian priestesses bear geometric patterns on their skin — dots, lines, abstract figures. Once dismissed as markers of low status, scholars now understand them as symbols of fertility, protection, and devotion. Some things are too important to leave unsaid."
-              },
-              {
-                year: "Origins",
-                title: "Polynesia & Māori",
-                text: "In the Pacific, tattoos were never decoration. The Māori tā moko encoded genealogy, rank, and identity — a readable life carved in spirals onto the face. To know someone's moko was to know their entire lineage. The face was the most sacred canvas."
-              },
-              {
-                year: "17th Century",
-                title: "Japan — Irezumi",
-                text: "Japanese irezumi began as punishment marks — criminals branded by location and crime. Then something shifted. Artisans and laborers reclaimed the tradition, turning stigma into pride. By the Edo period, full-body irezumi had become a discipline so revered that masters trained for decades."
-              },
-              {
-                year: "Ancestral",
-                title: "Indigenous Traditions",
-                text: "Across the Americas and Africa, tattooing and scarification marked transitions — from child to warrior, from living to ancestor. These marks were not chosen freely in a studio. They were earned. They were given. They carried the weight of the community."
-              },
-              {
-                year: "Today",
-                title: "Personal Myth",
-                text: "Tattooing moved from stigma to mainstream, from sailors to surgeons, from rebellion to ritual. What remains constant is this: humans have always needed to mark on their bodies what they cannot say with words. A tattoo is a permanent decision made in a permanent moment."
-              }
-            ].map((chapter, i) => (
-              <FadeIn key={i} delay={0.2} duration={1.2} className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-8 md:gap-16 items-start">
-                <div className="border-t border-[var(--color-deep-charcoal)]/20 pt-4 md:border-t-0 md:pt-0 md:border-l md:pl-8">
-                  <span className="block text-sm uppercase tracking-widest text-[var(--color-ink-blue)] mb-2">{chapter.year}</span>
-                  <h3 className="text-xl md:text-2xl">{chapter.title}</h3>
-                </div>
-                <div className="text-lg md:text-xl leading-relaxed text-[var(--color-deep-charcoal)]/80">
-                  {chapter.text}
+          {/* Chapters */}
+          <div className="flex flex-col divide-y divide-[#1A1A1A]/10">
+            {historyChapters.map((chapter, i) => (
+              <FadeIn key={i} delay={0.1} duration={1}>
+                <div className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-6 md:gap-16 py-12 md:py-14">
+                  <div className="flex flex-col gap-1">
+                    <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#3B4F6B]">{chapter.year}</span>
+                    <span className="font-serif text-xl md:text-2xl font-light text-[#1A1A1A]">{chapter.title}</span>
+                  </div>
+                  <p className="font-sans text-base md:text-lg leading-[1.85] text-[#1A1A1A]/65 font-light">
+                    {chapter.text}
+                  </p>
                 </div>
               </FadeIn>
             ))}
@@ -135,127 +248,194 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. WHY & WHEN TO GET ONE */}
-      <section className="relative py-32 md:py-48 px-6 text-[var(--color-deep-charcoal)]">
-        <div className="max-w-3xl mx-auto flex flex-col items-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl mb-12 text-center">
-            <HeadingReveal text="Getting a tattoo is not a small decision." />
-          </h2>
-          
-          <div className="w-full mb-16">
-            <LineReveal className="bg-[var(--color-deep-charcoal)]/20" />
+      {/* ── 3. WHY & WHEN ── */}
+      <section className="bg-[#F7F3EE] py-32 md:py-48 px-8 md:px-14">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+
+          {/* Left: heading + text */}
+          <div>
+            <FadeIn delay={0.1}>
+              <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A882]">
+                Before You Decide
+              </span>
+            </FadeIn>
+            <h2 className="mt-6 font-serif font-light leading-[1.1] tracking-tight text-[#1A1A1A]" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4.5rem)' }}>
+              <HeadingReveal text="Getting a tattoo" />
+              <HeadingReveal text="is not a small" delay={0.1} />
+              <HeadingReveal text="decision." delay={0.2} />
+            </h2>
+
+            <div className="mt-10 mb-12">
+              <LineReveal className="bg-[#1A1A1A]/15" />
+            </div>
+
+            <div className="space-y-6">
+              <ParagraphReveal delay={0.1}>
+                <p className="font-sans text-base md:text-[17px] leading-[1.9] text-[#1A1A1A]/65 font-light">
+                  People carry ink for reasons that span the entirety of human experience. We tattoo to remember. To reclaim our bodies, to grieve, to celebrate, to mark transitions, and to find belonging. A tattoo is an anchor in a fluid world — fixed, permanent, yours.
+                </p>
+              </ParagraphReveal>
+              <ParagraphReveal delay={0.25}>
+                <p className="font-sans text-base md:text-[17px] leading-[1.9] text-[#1A1A1A]/65 font-light">
+                  Readiness matters. Permanence requires intention. Healing takes time and patience. Choose a design for yourself — not for a trend, not for another person. The commitment to aftercare is the final step in the ritual. Be sure you are ready to carry this with you — forever.
+                </p>
+              </ParagraphReveal>
+            </div>
           </div>
 
-          <div className="space-y-8 text-lg md:text-xl leading-[1.9] text-[var(--color-deep-charcoal)]/80">
-            <ParagraphReveal delay={0.2}>
-              <p>
-                People carry ink for reasons that span the entirety of the human experience. We tattoo to remember. We tattoo to forget. We tattoo to reclaim our bodies, to grieve, to celebrate, to mark transitions, and to find belonging. A tattoo is an anchor in a fluid world.
-              </p>
-            </ParagraphReveal>
-            <ParagraphReveal delay={0.4}>
-              <p>
-                But readiness matters. Permanence requires intention. Healing takes time and patience. Choose a design for yourself, not for a trend. The commitment to aftercare is the final step in the ritual. Be sure you are ready to carry this with you.
-              </p>
-            </ParagraphReveal>
-          </div>
-
-          <div className="mt-24 w-[110%] -ml-[5%] relative overflow-hidden">
-            <ImageReveal 
-              src={studioWorkspace} 
-              alt="Clean minimal tattoo workspace" 
-              className="aspect-[4/3] md:aspect-[21/9]"
+          {/* Right: image */}
+          <FadeIn delay={0.3} className="lg:pt-24">
+            <ImageReveal
+              src={studioWorkspace}
+              alt="Clean minimal tattoo workspace"
+              className="aspect-[4/5] w-full"
             />
-          </div>
+            <FadeIn delay={0.5}>
+              <p className="mt-5 font-sans text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/35 text-right">
+                The workspace · Jaipur
+              </p>
+            </FadeIn>
+          </FadeIn>
         </div>
       </section>
 
-      {/* 4. STUDIO / MANPREET'S PHILOSOPHY */}
-      <section className="relative py-32 md:py-48 px-6 text-[var(--color-deep-charcoal)]">
+      {/* ── 4. PHILOSOPHY ── */}
+      <section id="philosophy" className="bg-[#1A1A1A] py-32 md:py-48 px-8 md:px-14 text-[#F7F3EE]">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <FadeIn>
-            <ImageReveal 
-              src={artistPortrait} 
-              alt="Manpreet Kaur, Tattoo Artist" 
-              className="aspect-[3/4] object-cover"
+
+          {/* Left: portrait */}
+          <FadeIn className="relative">
+            <ImageReveal
+              src={artistPortrait}
+              alt="Manpreet Kaur — tattoo artist, Jaipur"
+              className="aspect-[3/4] w-full"
             />
+            {/* Accent frame */}
+            <div className="absolute -bottom-4 -right-4 w-3/4 h-3/4 border border-[#C8A882]/20 pointer-events-none" />
           </FadeIn>
 
-          <div className="flex flex-col gap-8">
+          {/* Right: text */}
+          <div className="flex flex-col gap-8 lg:gap-10">
             <div>
               <FadeIn delay={0.1}>
-                <span className="text-sm uppercase tracking-widest text-[var(--color-warm-sand)] font-medium">The Artist</span>
+                <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#C8A882]">
+                  The Artist
+                </span>
               </FadeIn>
-              <h2 className="text-4xl md:text-6xl mt-4 mb-2">Manpreet Kaur</h2>
-              <FadeIn delay={0.3}>
-                <p className="text-sm md:text-base text-[var(--color-deep-charcoal)]/60">
-                  Jaipur's first female-owned tattoo atelier · Certified, Aliens Tattoo Mumbai
+              <h2
+                className="mt-4 font-serif font-light leading-[1.05] tracking-tight text-[#F7F3EE]"
+                style={{ fontSize: 'clamp(2.4rem, 4vw, 4.2rem)' }}
+              >
+                <HeadingReveal text="Manpreet Kaur" delay={0.1} />
+              </h2>
+              <FadeIn delay={0.25}>
+                <p className="mt-3 font-sans text-[11px] tracking-[0.18em] uppercase text-[#F7F3EE]/40">
+                  Tattoo Artist · Certified, Aliens Tattoo Mumbai
                 </p>
               </FadeIn>
             </div>
 
-            <LineReveal className="bg-[var(--color-deep-charcoal)]/10" />
+            <LineReveal delay={0.2} className="bg-[#F7F3EE]/10" />
 
-            <ParagraphReveal delay={0.4}>
-              <p className="text-xl md:text-2xl leading-relaxed font-serif text-[var(--color-deep-charcoal)]/90 italic">
+            <ParagraphReveal delay={0.3}>
+              <blockquote className="font-serif text-xl md:text-2xl leading-[1.6] font-light text-[#F7F3EE]/85 italic">
                 "Every tattoo I make is a collaboration. I don't put my art on your body — I help you find what was already trying to come through. The process is slow, deliberate, and private. You bring the meaning. I bring the craft."
-              </p>
+              </blockquote>
             </ParagraphReveal>
 
-            <LineReveal className="bg-[var(--color-deep-charcoal)]/10" />
+            <LineReveal delay={0.35} className="bg-[#F7F3EE]/10" />
 
-            <FadeIn delay={0.6}>
-              <p className="uppercase tracking-widest text-sm font-medium">By appointment. At your door.</p>
+            <FadeIn delay={0.45}>
+              <p className="font-sans text-[11px] tracking-[0.28em] uppercase text-[#C8A882]">
+                By appointment. At your door.
+              </p>
             </FadeIn>
-            
-            <FadeIn delay={0.8} className="mt-8">
-               <ImageReveal 
-                 src={portfolioGrid} 
-                 alt="Tattoo Portfolio Examples" 
-                 className="aspect-square opacity-90 mix-blend-multiply max-w-sm"
-               />
+
+            <FadeIn delay={0.55}>
+              <div className="pt-4 flex flex-col gap-2">
+                {['Fine Line', 'Illustrative', 'Script & Lettering', 'Geometric', 'Custom Concepts'].map((style, i) => (
+                  <div key={i} className="flex items-center gap-4">
+                    <span className="w-3 h-[1px] bg-[#C8A882]/50" />
+                    <span className="font-sans text-[10px] tracking-[0.22em] uppercase text-[#F7F3EE]/40">
+                      {style}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* 5. CONTACT */}
-      <section className="relative py-32 md:py-48 px-6 text-[var(--color-deep-charcoal)] flex flex-col items-center justify-center min-h-[80svh]">
-        <div className="max-w-4xl mx-auto text-center w-full">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl mb-24">
-            <HeadingReveal text="Tell us what you want to carry with you." />
-          </h2>
+      {/* ── 5. CONTACT ── */}
+      <section id="contact" className="bg-[#EEF0F3] py-32 md:py-48 px-8 md:px-14">
+        <div className="max-w-6xl mx-auto">
 
-          <div className="flex flex-col gap-8 text-xl md:text-3xl font-light mb-32 tracking-wide">
-            <FadeIn delay={0.3}>
-              <a href="https://instagram.com/mnprt_9001" target="_blank" rel="noreferrer" className="hover:text-[var(--color-ink-blue)] transition-colors duration-500">
-                Instagram: @mnprt_9001
-              </a>
+          <div className="mb-20">
+            <FadeIn delay={0.1}>
+              <span className="font-sans text-[10px] tracking-[0.3em] uppercase text-[#3B4F6B]">
+                Begin Here
+              </span>
             </FadeIn>
-            <FadeIn delay={0.4}>
-              <a href="https://wa.me/918740007570" target="_blank" rel="noreferrer" className="hover:text-[var(--color-ink-blue)] transition-colors duration-500">
-                WhatsApp: +91 87400 07570
-              </a>
-            </FadeIn>
-            <FadeIn delay={0.5}>
-              <a href="https://ordertattoo.in" target="_blank" rel="noreferrer" className="hover:text-[var(--color-ink-blue)] transition-colors duration-500">
-                Website: ordertattoo.in
-              </a>
-            </FadeIn>
+            <h2
+              className="mt-6 font-serif font-light leading-[1.05] tracking-tight text-[#1A1A1A]"
+              style={{ fontSize: 'clamp(2.6rem, 5.5vw, 5.5rem)' }}
+            >
+              <HeadingReveal text="Tell us what you" />
+              <HeadingReveal text="want to carry" delay={0.1} />
+              <HeadingReveal text="with you." delay={0.2} />
+            </h2>
+            <div className="mt-10">
+              <LineReveal className="bg-[#1A1A1A]/12" />
+            </div>
           </div>
 
-          <FadeIn delay={0.8}>
-            <p className="text-lg md:text-xl font-serif italic text-[var(--color-deep-charcoal)]/60 mb-24">
-              Order. Then, forever.
-            </p>
+          {/* Contact links */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-[#1A1A1A]/10">
+            {[
+              { label: 'Instagram', value: '@mnprt_9001', href: 'https://instagram.com/mnprt_9001' },
+              { label: 'WhatsApp', value: '+91 87400 07570', href: 'https://wa.me/918740007570' },
+              { label: 'Web', value: 'ordertattoo.in', href: 'https://ordertattoo.in' },
+            ].map((item, i) => (
+              <FadeIn key={i} delay={0.1 + i * 0.12}>
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex flex-col gap-2 py-10 md:py-8 md:px-10 first:md:pl-0 last:md:pr-0 transition-all duration-500"
+                >
+                  <span className="font-sans text-[9px] tracking-[0.3em] uppercase text-[#1A1A1A]/35 group-hover:text-[#3B4F6B] transition-colors duration-500">
+                    {item.label}
+                  </span>
+                  <span className="font-serif text-2xl md:text-3xl font-light text-[#1A1A1A] group-hover:text-[#3B4F6B] transition-colors duration-500">
+                    {item.value}
+                  </span>
+                  <span className="w-0 group-hover:w-8 h-[1px] bg-[#3B4F6B] transition-all duration-700 ease-out" />
+                </a>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* Closing */}
+          <FadeIn delay={0.5}>
+            <div className="mt-24 text-center">
+              <p className="font-serif italic text-xl md:text-2xl text-[#1A1A1A]/40">
+                Order. Then, forever.
+              </p>
+            </div>
           </FadeIn>
         </div>
-        
-        <footer className="absolute bottom-0 w-full p-6 flex flex-col items-center text-sm text-[var(--color-deep-charcoal)]/40 tracking-widest uppercase">
-          <div className="w-full max-w-sm h-[1px] bg-[var(--color-deep-charcoal)]/10 mb-6"></div>
-          <p>© 2025 Order Tattoo · Jaipur, India</p>
-        </footer>
       </section>
 
-    </motion.div>
+      {/* ── FOOTER ── */}
+      <footer className="bg-[#EEF0F3] border-t border-[#1A1A1A]/10 px-8 md:px-14 py-7 flex flex-col md:flex-row items-center justify-between gap-4">
+        <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/30">
+          Order Tattoo · Jaipur, India
+        </span>
+        <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/25">
+          © 2025
+        </span>
+      </footer>
+    </div>
   );
 }
