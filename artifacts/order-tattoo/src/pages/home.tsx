@@ -252,7 +252,7 @@ export default function Home() {
       </section>
 
       {/* ── 3. WHY & WHEN ── */}
-      <section className="bg-[#F7F3EE] py-32 md:py-48 px-8 md:px-14">
+      <section className="bg-[#F7F3EE] pt-14 pb-20 md:pt-16 md:pb-28 px-8 md:px-14">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
 
           {/* Left: heading + text */}
