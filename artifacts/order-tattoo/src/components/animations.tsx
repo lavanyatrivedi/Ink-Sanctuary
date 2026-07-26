@@ -76,10 +76,10 @@ export const ImageReveal = ({ src, alt, className = "", delay = 0 }: { src: stri
         src={src}
         alt={alt}
         className="w-full h-full object-cover"
-        initial={{ clipPath: "inset(100% 0 0 0)", scale: 1.05 }}
-        whileInView={{ clipPath: "inset(0% 0 0 0)", scale: 1 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 1.4, delay, ease: [0.25, 0.1, 0.25, 1] }}
+        initial={{ opacity: 0, scale: 1.02 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay, ease: [0.25, 0.1, 0.25, 1] }}
       />
     </div>
   );
