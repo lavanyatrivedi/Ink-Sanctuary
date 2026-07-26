@@ -1,10 +1,11 @@
 import { FadeIn, HeadingReveal, LineReveal, ImageReveal, ParagraphReveal } from '@/components/animations';
 import { motion } from 'framer-motion';
 
-// Generated images only
+// Generated and client assets
 import heroLotus from '@assets/generated_images/hero_lotus.jpg';
 import studioWorkspace from '@assets/generated_images/studio_workspace.jpg';
 import artistPortrait from '@assets/generated_images/artist_portrait.jpg';
+import sunTattooArm from '@assets/WhatsApp_Image_2026-07-26_at_17.08.48_1785065943382.jpeg';
 
 const historyChapters = [
   { year: "3300 BCE", title: "Ötzi the Iceman", text: "The oldest known tattoos — charcoal rubbed into incisions, placed over arthritic joints. The first tattoos were medicine." },
@@ -66,10 +67,10 @@ export default function Home() {
       </header>
 
       {/* ── 1. HERO ── */}
-      <section className="min-h-screen w-full bg-[#F7F3EE] pt-20 pb-0 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
+      <section className="relative min-h-screen w-full bg-[#F7F3EE] pt-0 pb-0 grid grid-cols-1 lg:grid-cols-2 overflow-hidden">
 
         {/* Left: text block */}
-        <div className="flex flex-col justify-between pb-12 md:pb-16 px-8 md:px-14 pt-20 lg:pt-16 z-10">
+        <div className="flex flex-col justify-between pb-12 md:pb-16 px-8 md:px-14 pt-28 lg:pt-24 z-10">
 
           {/* Eyebrow + title + tagline */}
           <div>
@@ -141,7 +142,7 @@ export default function Home() {
         </div>{/* end left column */}
 
         {/* Right: hero image */}
-        <div className="relative h-[55vw] lg:h-auto overflow-hidden">
+        <div className="relative h-[55vw] lg:h-full lg:min-h-screen overflow-hidden">
           <motion.div
             className="absolute inset-0"
             initial={{ clipPath: 'inset(0 100% 0 0)' }}
@@ -169,23 +170,6 @@ export default function Home() {
             </span>
           </motion.div>
         </div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 2.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10 hidden lg:flex"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-[1px] h-12 bg-[#1A1A1A]/20"
-          />
-          <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-[#1A1A1A]/30">
-            Scroll
-          </span>
-        </motion.div>
       </section>
 
       {/* ── 2. HISTORY ── */}
@@ -293,13 +277,13 @@ export default function Home() {
           {/* Right: image */}
           <FadeIn delay={0.3} className="lg:pt-24">
             <ImageReveal
-              src={studioWorkspace}
-              alt="Clean minimal tattoo workspace"
-              className="aspect-[4/5] w-full"
+              src={sunTattooArm}
+              alt="Sun tattoo on forearm"
+              className="aspect-[4/5] w-full object-cover rounded-sm shadow-sm"
             />
             <FadeIn delay={0.5}>
               <p className="mt-5 font-sans text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/35 text-right">
-                The workspace · Jaipur
+                Sun Tattoo · Jaipur
               </p>
             </FadeIn>
           </FadeIn>
@@ -460,7 +444,7 @@ export default function Home() {
           Order Tattoo · Jaipur, India
         </span>
         <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/25">
-          © 2025
+          © 2026
         </span>
       </footer>
     </div>
