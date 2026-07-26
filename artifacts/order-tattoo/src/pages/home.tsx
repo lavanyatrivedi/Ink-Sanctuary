@@ -299,10 +299,8 @@ export default function Home() {
             <ImageReveal
               src={artistPortrait}
               alt="Manpreet Kaur - tattoo artist, Jaipur"
-              className="aspect-[3/4] w-full"
+              className="aspect-[3/4] w-full rounded-sm shadow-sm"
             />
-            {/* Accent frame */}
-            <div className="absolute -bottom-4 -right-4 w-3/4 h-3/4 border border-[#C8A882]/20 pointer-events-none" />
           </FadeIn>
 
           {/* Right: text */}
